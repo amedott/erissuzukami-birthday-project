@@ -12,6 +12,77 @@
   <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
 
   <link href="./style.css" rel="stylesheet">
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: 88vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+      animation: modalIn 0.2s ease;
+    }
+
+    @keyframes modalIn {
+      from {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close {
+      position: fixed;
+      top: 18px;
+      right: 26px;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10000;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      transition: color 0.15s, transform 0.15s;
+    }
+
+    .close:hover {
+      color: #fcd;
+      transform: scale(1.15);
+    }
+
+    .myImages {
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 6px;
+    }
+
+    .myImages:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+  </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -21,7 +92,7 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 
-<body>
+<body class="flex flex-col min-h-screen">
   <!-- The Modal -->
   <div id="myModal" class="modal">
     <span class="close">&times;</span>
@@ -29,22 +100,27 @@
     <div id="caption"></div>
   </div>
 
-  <div id="particles-js" class="w-screen h-full fixed -z-10"></div>
+  <div id="particles-js" class="w-screen h-full fixed -z-10"
+    style="background-image: url('./img/bg3.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  </div>
   <div class="absolute top-0 right-0">
-    <img src="./img/chili_7.png" width="50" height="50" class="transform -translate-x-2 rotate-12" title="大好きだぁ゛">
+    <img src="./img/tobidachi.png" width="50" height="50" class="transform -translate-x-2 rotate-12">
   </div>
 
   <div class="container mx-auto pt-6 z-10">
     <section class="container flex flex-col justify-center">
       <h1 class="text-center font-sans text-7xl font-bold p-6" data-aos="fade-in" data-aos-duration="1500"
-        style="font-family: 'Yomogi', cursive;">
+        style="font-family: 'Yomogi', cursive; text-shadow: 1px 1px 2px rgba(0,0,0, 0.25); mix-blend-mode: multiply; color: #1a1a2e;">
         Happy Birthday, Eris!
       </h1>
     </section>
 
     <section class="container pt-12 pb-6">
-      <h1 class="text-center text-3xl font-normal">Messages from Tobidachis</h1>
-      <h3 class="text-center text-3xl font-normal" style="font-family: 'Yomogi', cursive;">トビだちからのメッセージ</h3>
+      <h1 class="text-center text-3xl font-normal" style="mix-blend-mode: multiply; color: #1a1a2e;">Messages from
+        Tobidachis</h1>
+      <h3 class="text-center text-3xl font-normal"
+        style="font-family: 'Yomogi', cursive; text-shadow: 1px 1px 2px rgba(0,0,0, 0.25); mix-blend-mode: multiply; color: #1a1a2e;">
+        トビだちからのメッセージ</h3>
       <div class="container grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
 
         {{#each messages}}
@@ -57,10 +133,10 @@
                 <p class="font-bold text-xl">{{ name }}</p>
                 <p class="text-gray-500 text-sm font-mono">{{ twitter }}</p>
               </div>
-              <img src="./img/chili_7.png" width="50" height="50"
+              <img src="./img/tobidachi.png" width="50" height="50"
                 class="transition transform rotate-12 translate-x-4 -translate-y-4 hover:scale-125">
             </div>
-            <img class="myImages" id="myImg" src="{{ image_link }}">
+            <img class="myImages" src="{{ image_link }}" alt="{{ name }}" style="width:100%">
             <p class="text-gray-700 text-base mt-2">
               {{ breaklines content }}
             </p>
@@ -72,7 +148,8 @@
     </section>
   </div>
 
-  <footer class="pt-6 pb-6 backdrop-filter backdrop-brightness-50 backdrop-blur-lg mix-blend-darker w-full text-white"
+  <footer
+    class="mt-auto pt-6 pb-6 backdrop-filter backdrop-brightness-50 backdrop-blur-lg mix-blend-darker w-full text-white"
     data-aos="fade-in">
     <h2 class="text-center text-3xl font-normal" data-aos="fade-in">
       Credit
@@ -137,7 +214,7 @@
     particlesJS("particles-js", {
       "particles": {
         "number": {
-          "value": 160,
+          "value": 40,
           "density": {
             "enable": true,
             "value_area": 800
@@ -162,7 +239,7 @@
           }
         },
         "opacity": {
-          "value": 1,
+          "value": 0.5,
           "random": true,
           "anim": {
             "enable": true,
