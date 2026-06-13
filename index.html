@@ -27,11 +27,9 @@
       justify-content: center;
       align-items: center;
     }
-
     .modal.open {
       display: flex;
     }
-
     .modal-content {
       max-width: 88vw;
       max-height: 88vh;
@@ -40,19 +38,10 @@
       box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
       animation: modalIn 0.2s ease;
     }
-
     @keyframes modalIn {
-      from {
-        transform: scale(0.92);
-        opacity: 0;
-      }
-
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
+      from { transform: scale(0.92); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
     }
-
     .close {
       position: fixed;
       top: 18px;
@@ -63,24 +52,21 @@
       line-height: 1;
       cursor: pointer;
       z-index: 10000;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
       transition: color 0.15s, transform 0.15s;
     }
-
     .close:hover {
       color: #fcd;
       transform: scale(1.15);
     }
-
     .myImages {
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       border-radius: 6px;
     }
-
     .myImages:hover {
       transform: scale(1.02);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     }
   </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -100,9 +86,7 @@
     <div id="caption"></div>
   </div>
 
-  <div id="particles-js" class="w-screen h-full fixed -z-10"
-    style="background-image: url('./img/bg3.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-  </div>
+  <div id="particles-js" class="w-screen h-full fixed -z-10" style="background-image: url('./img/bg3.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
   <div class="absolute top-0 right-0">
     <img src="./img/tobidachi.png" width="50" height="50" class="transform -translate-x-2 rotate-12">
   </div>
@@ -116,11 +100,8 @@
     </section>
 
     <section class="container pt-12 pb-6">
-      <h1 class="text-center text-3xl font-normal" style="mix-blend-mode: multiply; color: #1a1a2e;">Messages from
-        Tobidachis</h1>
-      <h3 class="text-center text-3xl font-normal"
-        style="font-family: 'Yomogi', cursive; text-shadow: 1px 1px 2px rgba(0,0,0, 0.25); mix-blend-mode: multiply; color: #1a1a2e;">
-        トビだちからのメッセージ</h3>
+      <h1 class="text-center text-3xl font-normal" style="mix-blend-mode: multiply; color: #1a1a2e;">Messages from Tobidachis</h1>
+      <h3 class="text-center text-3xl font-normal" style="font-family: 'Yomogi', cursive; text-shadow: 1px 1px 2px rgba(0,0,0, 0.25); mix-blend-mode: multiply; color: #1a1a2e;">トビだちからのメッセージ</h3>
       <div class="container grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
 
         <!-- Card -->
@@ -182,23 +163,22 @@
     </section>
   </div>
 
-  <footer
-    class="mt-auto pt-6 pb-6 backdrop-filter backdrop-brightness-50 backdrop-blur-lg mix-blend-darker w-full text-white"
+  <footer class="mt-auto pt-6 pb-6 backdrop-filter backdrop-brightness-50 backdrop-blur-lg mix-blend-darker w-full text-white"
     data-aos="fade-in">
-    <h2 class="text-center text-3xl font-normal" data-aos="fade-in">
-      Credit
+    <h2 class="text-center text-2xl font-normal" data-aos="fade-in">
+      Credits
     </h2>
     <h3 class="text-center text-2xl font-normal" data-aos="fade-in">
       クレジット
     </h3>
     <br>
-    <div class="grid grid-flow-col grid-cols-3 justify-center" data-aos="fade-in">
+    <div class="grid grid-flow-col grid-cols-2 justify-center" data-aos="fade-in">
       <div class="text-center">
         <h4 class="text-2xl">Art</h4>
         <h4 class="text-lg" style="font-family: 'Yomogi', cursive;">イラスト</h4>
-        <a href="https://www.youtube.com/channel/UCH8iKou-ecNiJhTqGFfjqWQ">- 五十嵐苺</a> （背景／background）
+        <a href="https://x.com/ynphng_stugi">- Stugi</a>（Card Design）
         <br>
-        <a href="https://twitter.com/terminusashbell">- Terminus Ashbell</a>（バナナ／BaNana）
+        <a>- Jonbozz</a>（Tobidachi）
       </div>
 
       <div class="text-center">
@@ -206,40 +186,35 @@
         <h4 class="text-xl" style="font-family: 'Yomogi', cursive;">サイト</h4>
         <a href="https://twitter.com/amedayooooo">- ame。</a>
       </div>
-
-      <div class="text-center">
-        <h4 class="text-2xl">Thanks</h4>
-        <a href="https://twitter.com/suiutoko">- すいうとこ</a>（日本語翻訳／JPN TL）
-      </div>
     </div>
   </footer>
 
   <script>
-    // create references to the modal...
-    var modal = document.getElementById('myModal');
-    // to all images -- note I'm using a class!
-    var images = document.getElementsByClassName('myImages');
-    // the image in the modal
-    var modalImg = document.getElementById("img01");
-    // and the caption in the modal
-    var captionText = document.getElementById("caption");
+// create references to the modal...
+var modal = document.getElementById('myModal');
+// to all images -- note I'm using a class!
+var images = document.getElementsByClassName('myImages');
+// the image in the modal
+var modalImg = document.getElementById("img01");
+// and the caption in the modal
+var captionText = document.getElementById("caption");
 
-    // Go through all of the images with our custom class
-    for (var i = 0; i < images.length; i++) {
-      var img = images[i];
-      // and attach our click listener for this image.
-      img.onclick = function (evt) {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-      }
-    }
+// Go through all of the images with our custom class
+for (var i = 0; i < images.length; i++) {
+  var img = images[i];
+  // and attach our click listener for this image.
+  img.onclick = function(evt) {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+}
 
-    var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close")[0];
 
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
     AOS.init({
       once: true
@@ -359,3 +334,4 @@
 </body>
 
 </html>
+
